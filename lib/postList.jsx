@@ -1,28 +1,30 @@
-import React from 'react/addons';
-import decode from 'ent/decode';
+import React from 'react';
 import { Link } from 'react-router';
+import { decode } from 'ent';
+
+import { getPosts } from 'postStore';
+
+require( 'postList.sass' );
 
 export default React.createClass( {
 	getInitialState() {
-		return { posts: [] }
+		return {
+			posts: []
+		}
 	},
 
 	componentDidMount() {
-		const siteId = 72257965;
-
-		fetch( `https://public-api.wordpress.com/rest/v1.1/sites/${ siteId }/posts?fields=ID,title` )
-			.then( response => response.json() )
-			.then( response => response.posts )
+		getPosts()
 			.then( posts => this.setState( { posts } ) );
 	},
 
 	render() {
 		return (
-			<div>
+			<div className="post-list">
 				<ul>
-				{ this.state.posts.map( post => (
-					<li><Link to={ `/posts/${ post.ID }` }>{ decode( post.title ) }</Link></li>
-				) ) }
+					{ this.state.posts.map( post => (
+						<li key={ `post-${ post.ID }` }><Link to={ `/posts/${ post.ID }` }>{ decode( post.title ) }</Link></li>
+					) ) }
 				</ul>
 			</div>
 		);

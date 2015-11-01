@@ -1,0 +1,38 @@
+{
+  "name": "react-in-five-minutes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmsnell/react-in-five-minutes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmsnell/react-in-five-minutes/issues"
+  },
+  "homepage": "https://github.com/dmsnell/react-in-five-minutes#readme",
+  "dependencies": {
+    "ent": "^2.2.0",
+    "history": "^1.13.0",
+    "imports-loader": "^0.6.5",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.3.0",
+    "react-router": "^1.0.0-rc3",
+    "whatwg-fetch": "^0.10.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "exports-loader": "^0.6.2",
+    "html-webpack-plugin": "^1.6.2",
+    "json-loader": "^0.5.3",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  }
+}

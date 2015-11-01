@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexRoute, Router, Route } from 'react-router';
+import { IndexRoute, Route, Router } from 'react-router';
 
 import PostList from 'postList';
 import Post from 'post';

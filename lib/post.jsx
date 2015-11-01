@@ -1,27 +1,36 @@
-import React from 'react/addons';
+import React from 'react';
 import { Link } from 'react-router';
+import moment from 'moment';
+
+import { getPost } from 'postStore';
+
+require( 'post.sass' );
 
 export default React.createClass( {
 	getInitialState() {
 		return {
-			content: 'Loading post...'
-		}
+			post: null
+		};
 	},
 
 	componentDidMount() {
-		const siteId = 72257965;
-		const { id: postId } = this.props.params;
-
-		fetch( `https://public-api.wordpress.com/rest/v1.1/sites/${ siteId }/posts/${ postId }` )
-			.then( response => response.json() )
-			.then( data => this.setState( { content: data.content } ) );
+		getPost( this.props.params.id )
+			.then( post => this.setState( { post } ) );
 	},
 
 	render() {
+		const { post } = this.state;
+
 		return (
 			<div>
 				<Link to="/">Back</Link>
-				<div dangerouslySetInnerHTML={ { __html: this.state.content } } />
+				{ post ?
+					<div className="post-content">
+						<h2>{ post.title }</h2>
+						<h3>Posted by { post.author.name } on { moment( post.date ).format( 'MMMM D' ) }</h3>
+						<div dangerouslySetInnerHTML={ { __html: post.content } } />
+					</div>
+				: <div>Loading post...</div> }
 			</div>
 		);
 	}
