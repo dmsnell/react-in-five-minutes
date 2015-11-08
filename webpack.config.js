@@ -37,7 +37,7 @@ module.exports = {
 		})
 	],
 	resolve: {
-		modulesDirectories: [ 'lib', 'node_modules' ],
+		modulesDirectories: [ '', 'lib', 'node_modules' ],
 		extensions: [ '', '.js', '.jsx' ]
 	},
 	devtool: 'sourcemap'
