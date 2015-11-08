@@ -11,4 +11,4 @@ npm install
 npm run
 ```
 
-A live-editing environment should open up at `localhost:4001` and you can open that in your browser and start to mess with the code.
+A live-editing environment should open up at `localhost:4001` and you can open that in your browser and start to mess with the code. As you make changes, you should notice almost immediate updates in the browser. If something doesn't reload properly, simply refresh the browser.
